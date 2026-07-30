@@ -94,6 +94,9 @@ img { max-width: 100%; display: block; }
   background: var(--surface-2); color: var(--muted);
 }
 .app-card--soon { opacity: 0.7; }
+.app-card__chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.app-card__chips .chip { align-self: auto; }
+.chip--soon { background: transparent; border: 1px solid var(--line); }
 
 /* Buttons */
 .button {
