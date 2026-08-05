@@ -32,8 +32,18 @@
         <h1>Fonix</h1>
         <p class="sub">A word game about sounding it out. Every puzzle is a real word, re-spelled so each chunk of letters makes a sound it makes in <em>other</em> words. Read it aloud and you'll hear it.</p>
         <p><strong>“ghilltre”</strong> → gh like in <em>laugh</em>, re like in <em>acre</em> → <strong>filter</strong>.</p>
-        <!-- Replace # with the App Store link once the app is live. -->
-        <p style="margin-top:22px"><a class="button button-primary" href="#">Download on the App Store</a></p>
+        <!-- Fonix is not on the App Store yet. This deliberately renders as a
+             non-clickable status rather than a "Download" button pointing at "#":
+             a button that visibly does nothing when tapped reads as a broken site
+             and loses the visitor, which is worse than saying "not yet".
+
+             When it goes live, restore the button:
+               <p style="margin-top:22px"><a class="button button-primary"
+                  href="APP_STORE_URL">Download on the App Store</a></p>
+             and at the same time flip the "Coming soon" chip on index.html and add
+             the app's id to scripts/add_smart_app_banners.py. The full list is in
+             the post-approval checklist in the app's app-store-listing.md. -->
+        <p style="margin-top:22px"><span class="chip chip--soon">Coming soon to the App Store</span></p>
       </section>
 
       <section id="features" class="wrap">
