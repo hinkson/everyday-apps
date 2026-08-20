@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nudge: a calendar that sets your reminders for you</title>
+    <meta name="description" content="Nudge adds your whole set of reminders to every new event by itself, on every calendar you have. Plus boards for the things that are not events. Private, on-device, no account.">
+    <meta name="theme-color" content="#9a6400">
+    <link rel="icon" href="assets/nudge-icon-180.png">
+    <link rel="apple-touch-icon" href="assets/nudge-icon-180.png">
+    <link rel="stylesheet" href="styles.css?v=2">
+  </head>
+  <body class="accent-nudge">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Everyday home"><span class="brand-mark">E</span><span>Everyday</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">All apps</a>
+        <a href="nudge.html#features">Features</a>
+        <a href="nudge-support.html">Support</a>
+        <a href="nudge-privacy.html">Privacy</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="app-hero wrap">
+        <img src="assets/nudge-icon.png" alt="Nudge app icon">
+        <h1>Nudge</h1>
+        <p class="sub">A calendar that sets your reminders for you. Tell it once how far ahead you need warning, and it adds every one of those reminders to every new event by itself, including the events you make somewhere else.</p>
+        <p><strong>A week to plan. A day to prepare. An hour to wrap up. Fifteen minutes to actually go.</strong> No calendar will do all four for you, so you add them by hand until you stop bothering and start missing things.</p>
+        <!-- Nudge is not on the App Store yet. This deliberately renders as a
+             non-clickable status rather than a "Download" button pointing at "#":
+             a button that visibly does nothing when tapped reads as a broken site
+             and loses the visitor, which is worse than saying "not yet".
+
+             When it goes live, restore the button:
+               <p style="margin-top:22px"><a class="button button-primary"
+                  href="APP_STORE_URL">Download on the App Store</a></p>
+             and at the same time flip the "Coming soon" chip on index.html and add
+             the app's id to scripts/add_smart_app_banners.py (three entries: this
+             page, nudge-support.html and nudge-privacy.html). The full list is in
+             the post-approval checklist in the app's app-store-listing.md. -->
+        <p style="margin-top:22px"><span class="chip chip--soon">Coming soon to the App Store</span></p>
+      </section>
+
+      <section id="features" class="wrap">
+        <div class="feature-grid">
+          <div class="feature"><h3>Your reminders, applied for you</h3><p>Set your lead times once. Every new event gets all of them, without you touching a thing.</p></div>
+          <div class="feature"><h3>Every calendar you have</h3><p>Nudge builds on the calendar already on your iPhone, so it sees whatever you added in Settings, from whichever service. It needs no login of its own.</p></div>
+          <div class="feature"><h3>Alerts that outlive the app</h3><p>The alerts go on the events themselves. They show up in the Calendar app, they fire on your Mac and your Watch, and they keep working even if you delete Nudge.</p></div>
+          <div class="feature"><h3>A full calendar</h3><p>Month, week, day and list views. Type "lunch with Sam Thursday at 1" and get an event.</p></div>
+          <div class="feature"><h3>Boards for what is not an event</h3><p>Columns of task cards you drag between, each holding steps, a due date and the same reminder set your events get. Any line of a board's notes becomes a task with one tap.</p></div>
+          <div class="feature"><h3>Widgets</h3><p>Up Next shows your next events and how many alerts each one carries. Due Soon shows the tasks coming up. Part of Plus.</p></div>
+          <div class="feature"><h3>Honest about its limits</h3><p>Some events cannot take every alert. An event that repeats daily cannot carry a reminder set a week ahead, and some accounts cap how many alerts an event may have. Nudge fits what it can and says what it dropped and why, rather than failing quietly.</p></div>
+          <div class="feature"><h3>Is Nudge working?</h3><p>A screen listing every event Nudge has touched and every one it could not, with the reason. And a single button that removes every alert Nudge ever added, leaving anything you set yourself exactly as it was.</p></div>
+          <div class="feature"><h3>Free to start</h3><p>The whole promise is free: one set of up to four reminders on every new event, plus a board with unlimited tasks and steps. Plus is a one-time purchase, never a subscription itself, and adds a different set per calendar, rules for events that need special treatment, unlimited boards, widgets, leave by alerts and extra themes.</p></div>
+          <div class="feature"><h3>Private by design</h3><p>Your calendar never leaves your device. No account, no server, no analytics. It talks to nothing.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>Nudge</strong><p>A calendar that sets your reminders for you. An Everyday app.</p></div>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">All apps</a>
+        <a href="nudge-support.html">Support</a>
+        <a href="nudge-privacy.html">Privacy</a>
+      </nav>
+    </footer>
+  </body>
+</html>

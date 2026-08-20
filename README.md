@@ -10,6 +10,9 @@ Static marketing + legal site for the **Everyday** studio (small everyday-utilit
 - `index.html` — studio landing (all apps)
 - `fonix.html` / `fonix-privacy.html` / `fonix-support.html` — Fonix
 - `dues.html` / `dues-privacy.html` / `dues-support.html` — Dues
+- `nudge.html` / `nudge-privacy.html` / `nudge-support.html` — Nudge (not on the
+  App Store yet; the pages exist because ASC requires the support and privacy
+  URLs at submission, and they must be three different pages)
 - `privacy.html` / `support.html` — studio-level hubs
 - `styles.css` — self-contained styles (no external deps)
 
@@ -20,7 +23,10 @@ Static marketing + legal site for the **Everyday** studio (small everyday-utilit
    clone it to `~/Documents/GitHub/everyday-apps` (GitHub Desktop or terminal), then enable
    **Settings → Pages → deploy from `main` / root**. HTTPS remote:
    `https://github.com/hinkson/everyday-apps.git`.
-3. Fill in the real **App Store links** (the `href="#"` "Download on the App Store"
-   buttons in `fonix.html` and `dues.html`) once each app is live.
+3. Fonix and Dues are live and carry real App Store links. **Nudge does not.** When
+   it ships, follow `Storefront/PLAYBOOK.md` §8: swap the `chip--soon` status in
+   `nudge.html` for a real button, give the three `nudge*.html` entries in
+   `Storefront/scripts/add_smart_app_banners.py` the app id, publish, then verify
+   the **live** URL rather than the push.
 
 Then: `./publish-everyday-site.sh "message"` (run `--check` first for a dry run).

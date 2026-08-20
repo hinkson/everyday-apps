@@ -10,6 +10,7 @@
   --accent-ink: #ffffff;
   --fonix: #2e65d9;
   --dues: #1f9d74;
+  --nudge: #9a6400;
   --radius: 18px;
   --shadow: 0 10px 30px rgba(20, 25, 40, 0.06);
   --maxw: 1080px;
@@ -23,6 +24,7 @@
     --muted: #9aa3b4;
     --line: #262c3a;
     --accent: #7c78f0;
+    --nudge: #f0b429;
     --shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
   }
 }
@@ -89,7 +91,8 @@ img { max-width: 100%; display: block; }
 .app-card h2 { margin: 0; font-size: 1.3rem; color: var(--ink); }
 .app-card .tag { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
 .app-card p { margin: 0; color: var(--muted); }
-.app-card .chip {
+.chip {
+  display: inline-block;
   align-self: flex-start; font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px;
   background: var(--surface-2); color: var(--muted);
 }
@@ -155,3 +158,12 @@ img { max-width: 100%; display: block; }
 
 .accent-fonix { --accent: var(--fonix); }
 .accent-dues { --accent: var(--dues); }
+.accent-nudge { --accent: var(--nudge); }
+
+/* Nudge is the one accent that cannot be a single value. An amber dark enough to
+   pass as link text on white is too dim on the dark background, so --nudge has
+   both. The dark value is then too light to carry white button text, which is
+   what --accent-ink is for. */
+@media (prefers-color-scheme: dark) {
+  .accent-nudge { --accent-ink: #161a22; }
+}
