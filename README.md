@@ -13,6 +13,13 @@ Static marketing + legal site for the **Everyday** studio (small everyday-utilit
 - `nudge.html` / `nudge-privacy.html` / `nudge-support.html` — Nudge (not on the
   App Store yet; the pages exist because ASC requires the support and privacy
   URLs at submission, and they must be three different pages)
+- `heartprint.html` / `heartprint-privacy.html` / `heartprint-support.html`: Heartprint
+  (pre-TestFlight, "Coming soon" like Nudge)
+- `heartprint-match.html`: **where every Heartprint share link and QR code lands**
+  (`#<code>`). It decodes the link in the browser and never sends it anywhere. Its
+  type names and lines mirror `Heartprint/Engine/Archetype.swift`, and
+  `ContentTests.matchPageMirrorsTheTypes` fails if the two drift. Renaming or moving
+  this page breaks every link already sent.
 - `privacy.html` / `support.html` — studio-level hubs
 - `styles.css` — self-contained styles (no external deps)
 

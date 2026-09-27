@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How well do we match? | Heartprint</title>
+    <meta name="description" content="A friend sent you their Heartprint. Take the test and see where you click.">
+    <!-- Every link is personal and the result lives in the #fragment, so there is
+         nothing here worth indexing. -->
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#5c54db">
+    <!-- The preview Messages shows under a shared link. It cannot see the
+         fragment, so it is the same for everyone. -->
+    <meta property="og:title" content="How well do we match?">
+    <meta property="og:description" content="A friend sent you their Heartprint. Take the test and see where you click.">
+    <meta property="og:image" content="https://hinkson.github.io/everyday-apps/assets/heartprint-icon.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="assets/heartprint-icon-180.png">
+    <link rel="apple-touch-icon" href="assets/heartprint-icon-180.png">
+    <link rel="stylesheet" href="styles.css?v=3">
+  </head>
+  <body class="accent-heartprint">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Everyday home"><span class="brand-mark">E</span><span>Everyday</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="heartprint.html">Heartprint</a>
+        <a href="heartprint-support.html">Support</a>
+        <a href="heartprint-privacy.html">Privacy</a>
+      </nav>
+    </header>
+
+    <!--
+      Where every share link and QR code lands:
+        https://hinkson.github.io/everyday-apps/heartprint-match.html#<code>
+
+      The code is decoded right here in the browser. The part after # is never sent
+      to a server, so a friend's name and scores never reach GitHub's logs.
+
+      The decoder mirrors Heartprint/Engine/ShareCode.swift, version 1:
+        [0] version, [1...5] percentiles (E, A, C, stability, imagination),
+        [6...8] sun, moon, rising (0...11, 255 unknown), [9...] first name, UTF-8.
+      TYPES mirrors Archetype.all. ContentTests.matchPageMirrorsTheTypes fails if a
+      name or line changes in the app and not here.
+    -->
+    <main id="main" class="match-page">
+      <section class="match-card" id="friend" hidden>
+        <img src="assets/heartprint-icon.png" alt="Heartprint app icon">
+        <p class="from"><span id="friend-name"></span> shared their Heartprint</p>
+        <h1 class="type" id="friend-type"></h1>
+        <p class="line" id="friend-line"></p>
+        <div class="traits" id="friend-traits"></div>
+        <p class="signs" id="friend-signs" hidden></p>
+      </section>
+
+      <section class="match-card" id="broken" hidden>
+        <img src="assets/heartprint-icon.png" alt="Heartprint app icon">
+        <h1 class="type">This link didn't come through whole</h1>
+        <p class="line">It may have been cut off when it was copied, or it's from a newer version of Heartprint. Ask your friend to send it again.</p>
+      </section>
+
+      <section class="match-card" id="empty">
+        <img src="assets/heartprint-icon.png" alt="Heartprint app icon">
+        <h1 class="type">A Heartprint link opens here</h1>
+        <p class="line">When a friend sends you their Heartprint, this page shows their result and how to see where the two of you match.</p>
+      </section>
+
+      <section class="match-steps" id="steps">
+        <h2 id="steps-title">See how you match</h2>
+        <div class="match-actions" id="open-wrap" hidden>
+          <a class="button button-primary" id="open-app" href="heartprint://match">Open in Heartprint</a>
+          <span class="match-note" style="margin-top:0">Already took the test? This opens the match in the app.</span>
+        </div>
+        <ol>
+          <li>Get Heartprint on your iPhone.
+            <!-- Heartprint is not on the App Store yet. When it is, swap this chip for
+                   <a class="button" href="APP_STORE_URL">Get Heartprint</a>
+                 and give heartprint-match.html its id in
+                 Storefront/scripts/add_smart_app_banners.py. -->
+            <span class="chip chip--soon">Coming soon to the App Store</span></li>
+          <li>Take the test: 50 quick questions, about six minutes.</li>
+          <li>Come back and tap the link again, then pick Open in Heartprint. You'll both see where you click, and where it takes a little care.</li>
+        </ol>
+        <p class="match-note">This page reads the link right here on your phone. Nothing in it is sent anywhere, and a Heartprint link never holds a birthday.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>Heartprint</strong><p>See the good in you and in the people around you. An Everyday app.</p></div>
+      <nav aria-label="Footer navigation">
+        <a href="heartprint.html">Heartprint</a>
+        <a href="heartprint-support.html">Support</a>
+        <a href="heartprint-privacy.html">Privacy</a>
+      </nav>
+    </footer>
+
+    <script>
+      // A second friend's link opened in the same tab changes only the #fragment,
+      // which does not reload the page. Start over so it never shows the old friend.
+      window.addEventListener("hashchange", function () { location.reload(); });
+
+      (function () {
+        var TYPES = [
+          ["The Wanderer", "Private, practical and frank. You know your own road and walk it well."],
+          ["The Orbit", "Quiet, direct and disciplined. People could set their watch by you."],
+          ["The Crescent", "Gentle and easygoing. You care deeply and let the small stuff stay small."],
+          ["The Evening Star", "Loyal, dependable and kind. The first light people look for when the day gets dark."],
+          ["The Eclipse", "Independent and unconventional. You notice what everyone else walks right past."],
+          ["The Quasar", "Analytical, exacting and clear-eyed. You set a high bar and help others clear it."],
+          ["The Nebula", "Dreamy, imaginative and tender. Whole worlds are forming in there."],
+          ["The Lodestar", "Deep, kind and steady. People find their way by you, no shouting required."],
+          ["The Meteor", "Bold, honest and in the moment. You show up fast and make it count."],
+          ["The Zenith", "Driven, practical and direct. You aim high and plan the climb."],
+          ["The Sunburst", "Warm, sociable and spontaneous. Rooms get brighter when you walk in."],
+          ["The Harvest Moon", "Generous, grounded and dependable. You host, you feed, you remember birthdays."],
+          ["The Comet", "Daring, curious and full of ideas. You never pass through quietly, and thank goodness."],
+          ["The Pulsar", "Bold, inventive and tireless. A steady beat of plans that actually happen."],
+          ["The Aurora", "Warm, imaginative and free. You light the sky in colors nobody saw coming."],
+          ["The Beacon", "Warm, visionary and dependable. You lead by lighting the way for others."]
+        ];
+        // Factor order, as in the link: extraversion, agreeableness, conscientiousness,
+        // stability, imagination.
+        var TRAITS = [
+          ["Extraversion", "--trait-e"], ["Agreeableness", "--trait-a"],
+          ["Conscientiousness", "--trait-c"], ["Emotional stability", "--trait-s"],
+          ["Imagination", "--trait-i"]
+        ];
+        var SIGNS = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra",
+                     "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+
+        function decode(code) {
+          var b64 = code.replace(/-/g, "+").replace(/_/g, "/");
+          while (b64.length % 4) b64 += "=";
+          var bin;
+          try { bin = atob(b64); } catch (e) { return null; }
+          var bytes = new Uint8Array(bin.length);
+          for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+          if (bytes.length < 9 || bytes[0] !== 1) return null;
+          var scores = Array.prototype.slice.call(bytes, 1, 6);
+          if (scores.some(function (p) { return p < 1 || p > 99; })) return null;
+          var signs = [];
+          for (var s = 6; s <= 8; s++) {
+            if (bytes[s] === 255) { signs.push(null); continue; }
+            if (bytes[s] > 11) return null;
+            signs.push(SIGNS[bytes[s]]);
+          }
+          var nameBytes = bytes.slice(9);
+          if (nameBytes.length > 24) return null;
+          var name;
+          try { name = new TextDecoder("utf-8", { fatal: true }).decode(nameBytes); } catch (e) { return null; }
+          return { name: name.trim(), scores: scores, signs: signs };
+        }
+
+        var code = decodeURIComponent(location.hash.slice(1)).trim();
+        if (!code) return;
+        document.getElementById("empty").hidden = true;
+
+        var friend = decode(code);
+        if (!friend) {
+          document.getElementById("broken").hidden = false;
+          document.getElementById("steps-title").textContent = "Heartprint, in the meantime";
+          return;
+        }
+
+        var p = friend.scores;
+        var id = (p[0] >= 50 ? 8 : 0) | (p[4] >= 50 ? 4 : 0) | (p[1] >= 50 ? 2 : 0) | (p[2] >= 50 ? 1 : 0);
+        var type = TYPES[id];
+        var who = friend.name || "Your friend";
+
+        document.getElementById("friend-name").textContent = who;
+        document.getElementById("friend-type").textContent =
+          (p[3] >= 50 ? "Steady " : "Vivid ") + type[0].replace(/^The /, "");
+        document.getElementById("friend-line").textContent = type[1];
+
+        var traits = document.getElementById("friend-traits");
+        TRAITS.forEach(function (t, i) {
+          var row = document.createElement("div");
+          row.className = "trait";
+          row.setAttribute("aria-label", t[0] + ", " + p[i] + "th percentile");
+          var label = document.createElement("div");
+          label.className = "trait__label";
+          var n = document.createElement("span"); n.textContent = t[0];
+          var v = document.createElement("span"); v.textContent = p[i];
+          label.append(n, v);
+          var track = document.createElement("div");
+          track.className = "trait__track";
+          var fill = document.createElement("div");
+          fill.className = "trait__fill";
+          fill.style.width = p[i] + "%";
+          fill.style.background = "var(" + t[1] + ")";
+          track.append(fill);
+          row.append(label, track);
+          traits.append(row);
+        });
+
+        var parts = [];
+        ["Sun", "Moon", "Rising"].forEach(function (k, i) {
+          if (friend.signs[i]) parts.push(k.toLowerCase() + " " + friend.signs[i]);
+        });
+        if (parts.length) {
+          var signs = document.getElementById("friend-signs");
+          var text = parts.join(", ");
+          signs.textContent = text.charAt(0).toUpperCase() + text.slice(1) + ". The stars are the playful part.";
+          signs.hidden = false;
+        }
+
+        document.getElementById("friend").hidden = false;
+        document.getElementById("steps-title").textContent = "See how you and " + (friend.name || "your friend") + " match";
+        document.getElementById("open-app").href = "heartprint://match#" + code;
+        document.getElementById("open-wrap").hidden = false;
+        document.title = who + " shared their Heartprint";
+      })();
+    </script>
+  </body>
+</html>
