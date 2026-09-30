@@ -20,6 +20,12 @@ Static marketing + legal site for the **Everyday** studio (small everyday-utilit
   type names and lines mirror `Heartprint/Engine/Archetype.swift`, and
   `ContentTests.matchPageMirrorsTheTypes` fails if the two drift. Renaming or moving
   this page breaks every link already sent.
+- **Tank is NOT in this folder on purpose.** `publish-everyday-site.sh` mirrors all of
+  `docs/`, so a draft here goes live with any other app's publish. Tank's three pages
+  wait in `../drafts/tank/` until its privacy page can be finished after the move to
+  private CloudKit sharing; `../drafts/tank/RESTORE.md` puts them back. Its icons stay
+  in `assets/` (unlinked, and tracked by `check-app-icons.sh`). **Put any future
+  unpublishable page in `../drafts/`, never here.**
 - `privacy.html` / `support.html` — studio-level hubs
 - `styles.css` — self-contained styles (no external deps)
 
