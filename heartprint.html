@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-itunes-app" content="app-id=6816761103">
     <title>Heartprint: a personality test that sees the good in you</title>
     <meta name="description" content="A real Big Five personality test, a type that leads with your strengths, and a way to see where you click with friends. Your sun, moon and rising too, as the playful part. Private, on your phone, free.">
     <meta name="theme-color" content="#5c54db">
@@ -11,7 +12,7 @@
     <meta property="og:image" content="https://hinkson.github.io/everyday-apps/assets/heartprint-icon.png">
     <link rel="icon" href="assets/heartprint-icon-180.png">
     <link rel="apple-touch-icon" href="assets/heartprint-icon-180.png">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=4">
   </head>
   <body class="accent-heartprint">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -20,6 +21,7 @@
       <a class="brand" href="index.html" aria-label="Everyday home"><span class="brand-mark">E</span><span>Everyday</span></a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">All apps</a>
+        <a href="heartprint.html#look">Screens</a>
         <a href="heartprint.html#features">Features</a>
         <a href="heartprint-support.html">Support</a>
         <a href="heartprint-privacy.html">Privacy</a>
@@ -31,13 +33,43 @@
         <img src="assets/heartprint-icon.png" alt="Heartprint app icon">
         <h1>Heartprint</h1>
         <p class="sub">See the good in you and in the people around you. A real personality test, a type that leads with your strengths, and a simple way to see where you click with the people you love.</p>
-        <!-- Not on the App Store yet. Same rule as nudge.html: a status, never a
-             button that goes nowhere. When it is live, restore
-               <p style="margin-top:22px"><a class="button button-primary"
-                  href="APP_STORE_URL">Download on the App Store</a></p>
-             flip the chip on index.html, and give all four heartprint*.html pages
-             the app id in Storefront/scripts/add_smart_app_banners.py. -->
-        <p style="margin-top:22px"><span class="chip chip--soon">Coming soon to the App Store</span></p>
+        <p style="margin-top:22px"><a class="button button-primary" href="https://apps.apple.com/app/id6816761103">Download on the App Store</a></p>
+      </section>
+
+      <section id="look" class="gallery" aria-labelledby="look-title">
+        <div class="wrap">
+          <h2 id="look-title" class="gallery__title">A look inside</h2>
+        </div>
+        <ul class="gallery__strip" role="list">
+          <li class="gallery__item">
+            <img class="gallery__screen" src="assets/heartprint/heartprint-01-report.webp" width="600" height="1303" loading="lazy" alt="The You tab: Dana is a Vivid Beacon, with strengths first, then what to watch for and how Dana shows up as a friend.">
+            <p>Your type, strengths first</p>
+          </li>
+          <li class="gallery__item">
+            <img class="gallery__screen" src="assets/heartprint/heartprint-02-match.webp" width="600" height="1303" loading="lazy" alt="A match between Dana and Sam, with the Friends lens and where they click.">
+            <p>Where you and a friend click</p>
+          </li>
+          <li class="gallery__item">
+            <img class="gallery__screen" src="assets/heartprint/heartprint-03-today.webp" width="600" height="1303" loading="lazy" alt="The Today tab: the real moon's sign and phase, the day's reflection and a new exploration.">
+            <p>Something new every day</p>
+          </li>
+          <li class="gallery__item">
+            <img class="gallery__screen" src="assets/heartprint/heartprint-04-test.webp" width="600" height="1303" loading="lazy" alt="The test, halfway through: I have excellent ideas, with five answers from very accurate to very inaccurate.">
+            <p>Fifty questions, about six minutes</p>
+          </li>
+          <li class="gallery__item">
+            <img class="gallery__screen" src="assets/heartprint/heartprint-05-explorations.webp" width="600" height="1303" loading="lazy" alt="Explorations: five finished, each placed on its own scale, and two new ones open.">
+            <p>A new exploration each day</p>
+          </li>
+          <li class="gallery__item">
+            <img class="gallery__screen" src="assets/heartprint/heartprint-06-journal.webp" width="600" height="1303" loading="lazy" alt="Your reflections: four days of answers, each with the moon it was written under.">
+            <p>A journal that grows with you</p>
+          </li>
+          <li class="gallery__item">
+            <img class="gallery__screen" src="assets/heartprint/heartprint-07-stars.webp" width="600" height="1303" loading="lazy" alt="Stars vs. Science: what tradition says about Dana's signs, next to what the test found.">
+            <p>The stars, fact-checked</p>
+          </li>
+        </ul>
       </section>
 
       <section id="features" class="wrap">

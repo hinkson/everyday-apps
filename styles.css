@@ -216,3 +216,34 @@ img { max-width: 100%; display: block; }
   .accent-tank { --accent-ink: #161a22; }
 }
 .accent-tank { --accent: var(--tank); }
+
+/* Screenshot gallery (first used by Heartprint). A scroll-snap strip of plain
+   app screens; the page draws the device edge, so the images carry none. The
+   strip scrolls inside itself, never the page. */
+.gallery { padding: 10px 0 10px; }
+.gallery__title { font-size: clamp(1.4rem, 3.5vw, 1.8rem); margin: 0 0 16px; letter-spacing: -0.01em; }
+.gallery__strip {
+  /* Full-bleed: the strip runs to the window edge so the next screen peeks out
+     instead of being cut at the content column, while the first one still lines
+     up with the heading above it. */
+  --inset: max(20px, calc((100% - var(--maxw)) / 2 + 20px));
+  list-style: none; margin: 0;
+  padding: 6px var(--inset) 18px;
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 240px); gap: 20px;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--inset);
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+}
+.gallery__item { scroll-snap-align: start; margin: 0; }
+.gallery__screen {
+  /* The screen, then a 5px bezel and a hairline drawn as rings, so the image
+     keeps its own size; the margin leaves room for the rings. */
+  width: calc(100% - 12px); height: auto; aspect-ratio: 600 / 1303; margin: 6px;
+  border-radius: 13% / 6%;
+  box-shadow: 0 0 0 5px #0b0b12, 0 0 0 6px var(--line), var(--shadow);
+  background: #0b0b12;
+}
+.gallery__item p { margin: 14px 4px 0; text-align: center; color: var(--muted); font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
+@media (max-width: 520px) {
+  .gallery__strip { grid-auto-columns: 62vw; gap: 16px; padding-inline: 16px; scroll-padding-inline: 16px; }
+}
